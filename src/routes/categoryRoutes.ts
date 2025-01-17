@@ -7,10 +7,17 @@ import {
     deleteCategory,
 } from "../controllers/categoryController";
 
+import { validateRequest } from "../middlewares/validateRequest";
+import {
+    createCategorySchema,
+    updateCategorySchema,
+} from "../validation/categoryValidation";
+
+
 const router = express.Router();
 
 // Route for creating a new category
-router.post("/", createCategory);
+router.post("/", validateRequest(createCategorySchema), createCategory);
 
 // Route for getting all categories
 router.get("/", getCategories);
@@ -19,7 +26,7 @@ router.get("/", getCategories);
 router.get("/:id", getCategoryById);
 
 // Route for updating a category
-router.put("/:id", updateCategory);
+router.put("/:id", validateRequest(updateCategorySchema), updateCategory);
 
 // Route for deleting a category
 router.delete("/:id", deleteCategory);
