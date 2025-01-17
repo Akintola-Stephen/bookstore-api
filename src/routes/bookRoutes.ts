@@ -19,7 +19,7 @@ router.post("/", validateRequest(createBookSchema), createBook);
 router.get("/:id", getBookById);
 
 // Route for updating a book
-router.put("/:id", updateBook);
+router.put("/:id", validateRequest(updateBookSchema), updateBook);
 
 // Route for deleting a book
 router.delete("/:id", deleteBook);
