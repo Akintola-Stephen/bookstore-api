@@ -7,10 +7,16 @@ import {
     deleteAuthor,
 } from "../controllers/authorController";
 
+import { validateRequest } from "../middlewares/validateRequest";
+import {
+    createAuthorSchema,
+    updateAuthorSchema,
+} from "../validation/authorValidation";
+
 const router = express.Router();
 
 // Route for creating a new author
-router.post("/", createAuthor);
+router.post("/", validateRequest(createAuthorSchema), createAuthor);
 
 // Route for getting all authors
 router.get("/", getAuthors);
@@ -19,7 +25,7 @@ router.get("/", getAuthors);
 router.get("/:id", getAuthorById);
 
 // Route for updating an author
-router.put("/:id", updateAuthor);
+router.put("/:id", validateRequest(updateAuthorSchema), updateAuthor);
 
 // Route for deleting an author
 router.delete("/:id", deleteAuthor);
