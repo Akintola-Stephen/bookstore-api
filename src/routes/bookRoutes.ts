@@ -6,10 +6,13 @@ import {
     deleteBook,
 } from "../controllers/bookController";
 
+import { validateRequest } from "../middlewares/validateRequest";
+import { createBookSchema, updateBookSchema } from "../validation/bookValidation";
+
 const router = express.Router();
 
 // Route for creating a new book
-router.post("/", createBook);
+router.post("/", validateRequest(createBookSchema), createBook);
 
 
 // Route for getting a single book by ID
