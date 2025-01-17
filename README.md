@@ -312,6 +312,9 @@ Here’s the structure of the project:
 ├── /src
 │   ├── /controllers     # Controller files handling the business logic
 │   ├── /models          # Mongoose models
+    ├── /__tests__          # Test cases
+    ├── /middlewares          # Middleware tests intercepting requests/response body
+    ├── /validation          # ZOD validation implementation
 │   ├── /routes          # API routes for books, authors, and categories
 │   ├── /utils           # Utility files (error handling, pagination)
 │   ├── app.ts           # Express app configuration
