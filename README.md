@@ -319,7 +319,7 @@ Here’s the structure of the project:
 │   ├── app.ts           # Express app configuration
 │   ├── server.ts        # Entry point for the application
 │
-├── /tests               # Unit tests for routes
+├── /__tests__              # Unit tests for routes
 │   └── bookRoutes.test.ts
 │
 ├── package.json         # Project dependencies and scripts
